@@ -59,6 +59,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: rgb(107, 4, 203);
   margin-top: -6px;
   box-shadow: 1px 2px 2px rgb(214, 189, 212);
+  cursor: pointer;
 }
 
 input[type="range"]::-moz-range-thumb {
@@ -67,4 +68,19 @@ input[type="range"]::-moz-range-thumb {
   background: rgb(107, 4, 203);
   margin-top: -6px;
   box-shadow: 1px 2px 2px rgb(214, 189, 212);
+}
+
+button {
+  font-family: "VT323", monospace;
+  font-size: 24px;
+  color: rgb(107, 4, 203);
+  height: auto;
+  padding: 10px;
+  font-family: "VT323";
+  background-color: rgb(209, 28, 215);
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  text-transform: uppercase;
+  cursor: pointer;
 }

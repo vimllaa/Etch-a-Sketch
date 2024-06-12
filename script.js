@@ -2,6 +2,9 @@ const container = document.getElementById("grid-container");
 
 const sliderElement = document.getElementById("mySlider");
 const pixelAmountDisplay = document.getElementById("pixelAmountDisplay");
+const resetButton = document.querySelector("button");
+
+let isMouseDown = false;
 
 function createGrid(value) {
   container.innerHTML = "";
@@ -18,8 +21,27 @@ function createGrid(value) {
 
   const newGridDivs = document.querySelectorAll(".col");
   newGridDivs.forEach((newDiv) => {
-    newDiv.addEventListener("mouseover", changeBackgroundColor);
+    newDiv.addEventListener("mousedown", changeBackgroundColor);
+    newDiv.addEventListener("mouseover", function (event) {
+      if (isMouseDown) {
+        changeBackgroundColor(event);
+      }
+    });
   });
+
+  document.addEventListener("mouseup", function () {
+    isMouseDown = false;
+  });
+}
+
+resetButton.addEventListener("click", function () {
+  initializeGrid();
+});
+
+function initializeGrid() {
+  let currentSlideValue = sliderElement.value;
+  pixelAmountDisplay.textContent = currentSlideValue;
+  createGrid(currentSlideValue);
 }
 
 function getRandomRgbColor() {
@@ -33,10 +55,6 @@ function changeBackgroundColor(event) {
   event.target.style.backgroundColor = getRandomRgbColor();
 }
 
-let currentSlideValue = sliderElement.value;
-pixelAmountDisplay.textContent = currentSlideValue;
-createGrid(currentSlideValue);
-
 function squareTo(value) {
   const divAmount = value * value;
   return divAmount;
@@ -45,12 +63,11 @@ function squareTo(value) {
 sliderElement.addEventListener("change", function () {
   currentSlideValue = sliderElement.value;
   pixelAmountDisplay.textContent = currentSlideValue;
-  console.log("Current Value:", currentSlideValue);
   createGrid(currentSlideValue);
 });
 
-sliderElement.addEventListener("change", function () {
-  currentSlideValue = sliderElement.value;
-  pixelAmountDisplay.textContent = currentSlideValue;
-  createGrid(currentSlideValue);
+container.addEventListener("mousedown", function () {
+  isMouseDown = true;
 });
+
+initializeGrid();
