@@ -4,9 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <div class="slider-container">
+      <div class="pixelSlider">
+        <h2>Pixel picker</h2>
+        <p>Slide to adjust the pixel amount of the grid</p>
+        <input
+          type="range"
+          min="3"
+          max="100"
+          value="16"
+          class="slider"
+          id="mySlider"
+        />
+        <p id="pixelAmountDisplay">16</p>
+      </div>
+    </div>
     <div class="flex-grid" id="grid-container"></div>
 
     <script src="script.js"></script>
