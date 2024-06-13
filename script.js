@@ -1,4 +1,5 @@
 const container = document.getElementById("grid-container");
+const body = document.querySelector("body");
 
 const sliderElement = document.getElementById("mySlider");
 const pixelAmountDisplay = document.getElementById("pixelAmountDisplay");
@@ -9,7 +10,7 @@ let isMouseDown = false;
 function createGrid(value) {
   container.innerHTML = "";
   let gridSize = squareTo(value);
-  const divSize = `calc(80vh / ${value})`;
+  const divSize = `calc(70vh / ${value})`;
 
   for (let i = 0; i < gridSize; i++) {
     const gridDiv = document.createElement("div");
@@ -71,3 +72,13 @@ container.addEventListener("mousedown", function () {
 });
 
 initializeGrid();
+
+function setBackgroundPixels() {
+  for (let i = 0; i < 400; i++) {
+    const gridDiv = document.createElement("div");
+    gridDiv.classList.add("col");
+
+    body.appendChild(gridDiv);
+  }
+}
+setBackgroundPixels();

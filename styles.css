@@ -4,15 +4,17 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   font-family: "VT323", monospace;
   font-weight: 400;
   font-style: normal;
+  background-color: rgb(255, 216, 254);
 }
 
 .flex-grid {
-  width: 80vh;
-  height: 80vh;
-
+  width: 70vh;
+  height: 70vh;
+  background-color: white;
   border: 4px solid indigo;
   display: flex;
   flex-wrap: wrap;
@@ -23,19 +25,29 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(80vh / 16);
-  height: calc(80vh / 16);
+  width: calc(70vh / 16);
+  height: calc(70vh / 16);
   margin: 0;
   padding: 0;
 }
 
-.slider-container {
+.control-container {
   display: flex;
-  margin: 200px;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-top: 30px;
 }
 
-input[type="range"] {
-  -webkit-appearance: none;
+h2 {
+  margin: 0;
+}
+
+.text-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 input[type="range"]:focus {
@@ -57,7 +69,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 24px;
   width: 24px;
   background: rgb(107, 4, 203);
-  margin-top: -6px;
+  margin-top: -3px;
   box-shadow: 1px 2px 2px rgb(214, 189, 212);
   cursor: pointer;
 }
@@ -73,9 +85,10 @@ input[type="range"]::-moz-range-thumb {
 button {
   font-family: "VT323", monospace;
   font-size: 24px;
-  color: rgb(107, 4, 203);
-  height: auto;
+  color: rgb(255, 255, 255);
+  height: 50px;
   padding: 10px;
+  margin: 10px;
   font-family: "VT323";
   background-color: rgb(209, 28, 215);
   position: relative;
@@ -83,4 +96,19 @@ button {
   vertical-align: top;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+#pixelAmountDisplay {
+  font-size: 16px;
+  text-align: center;
+  width: 20px;
+  color: white;
+  background-color: #4b0ee6;
+  padding: 10px;
+  margin: 10px;
+  border: solid black;
+}
+
+.slider {
+  display: flex;
 }
